@@ -4,7 +4,7 @@ The Shakeela Begum Protocol™ ©(SBP) is a three‑step reflective prompting fr
 
 Created by Pakistani Urdu poet and English haikuist Yasir Farooq, in tribute to his late mother Shakeela Begum — 13 July 2025
 
-
+Published at Zenodo: 10.5281/zenodo.20571331
 
 Overview
 
