@@ -1,11 +1,8 @@
 # Shakeela-Begum-Protocol-SBP-
 The Shakeela Begum Protocol™ ©(SBP) is a three‑step reflective prompting framework designed to improve clarity, reduce ambiguity, and produce deeper, insight‑focused responses from humans and AI systems. SBP restructures any question or instruction into a clearer cognitive sequence that naturally forces better reasoning.
 
-Shakeela Begum Protocol™ (SBP)
-Creative Commons BY-NC 4.0 (Attribution–NonCommercial)
 
-
-Created by Pakistani haikuist Yasir Farooq, in tribute to his late mother Shakeela Begum — 13 July 2025
+Created by Pakistani Urdu poet and English haikuist Yasir Farooq, in tribute to his late mother Shakeela Begum — 13 July 2025
 
 
 
@@ -226,11 +223,11 @@ Step 3 — Affirmation: “Focus on structure, feedback cycles, and consistent p
 
 Licensing & Attribution
 
-The Shakeela Begum Protocol™ © (SBP)
-Creative Commons BY-NC 4.0 (Attribution–NonCommercial)
+Shakeela Begum Protocol™ (SBP)
+CC BY-NC-ND 4.0
+(Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International)
 
 
-Created by Pakistani haikuist Yasir Farooq, in tribute to his late mother Shakeela Begum — 13 July 2025
 
 
 
@@ -244,18 +241,11 @@ v1.0 — 13 July 2025: Original formulation by Yasir Farooq.
 v1.1 — 2025: Integrated into AI reflective prompting as the Three-Step Reflective Response™.
 
 
-v1.2 — 19 November 2025: Official GitHub‑ready documentation release, including structured README and public dissemination.
+v1.2 —21 
+November 2025: Official GitHub‑ready documentation release, including structured README and public dissemination.
 
 
-Roadmap
 
-v1.3: Add multilingual examples and cross‑domain templates.
-
-
-v1.4: Release a formal whitepaper summarizing cognitive foundations.
-
-
-v2.0: Major expansion — SBP as a multi‑layer reasoning framework with plug‑in modules for AI, education, and decision‑making.
 
 
 
@@ -265,4 +255,4 @@ Issues and suggestions can be submitted via GitHub. This README is intended for 
 
 
 
-#Python #OpenSource #PromptEngineering #LLMTools #AIResearch #DeveloperTools #BuildInPublic
+#Python #OpenSource #PromptEngineering #LLMTools #AIResearch #DeveloperTools #BuildInPublic 
