@@ -1,0 +1,7 @@
+# Results, caches, and anything that could hold a secret
+sbp_runs/
+__pycache__/
+*.pyc
+.env
+.env.*
+.venv/
