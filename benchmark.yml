@@ -1,0 +1,65 @@
+name: SBP benchmark (manual, live model)
+
+# Manual only. Add the secret(s) for the provider you pick:
+#   anthropic          -> secret ANTHROPIC_API_KEY
+#   openai-compatible  -> secret SBP_API_KEY (if the server needs one) and repository VARIABLE SBP_BASE_URL (https only)
+# Settings -> Secrets and variables -> Actions.
+# GitHub-hosted runners cannot reach your local machine, so use a hosted model here; run local models on your own computer.
+# In a public repo the job log is public: do not put private text in `query`.
+on:
+  workflow_dispatch:
+    inputs:
+      provider:
+        description: "Which kind of model server"
+        type: choice
+        options:
+          - anthropic
+          - openai-compatible
+        default: anthropic
+      model:
+        description: "Model name (required for openai-compatible; optional for anthropic)"
+        required: false
+        default: ""
+      query:
+        description: "Question to benchmark"
+        required: true
+        default: "Is the rate of inflation in Pakistan justifiable?"
+      judge:
+        description: "Also score with a model-as-judge (3 extra calls)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Run live benchmark
+        env:
+          # Inputs go through env vars, never straight into the shell script (prevents injection).
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SBP_API_KEY: ${{ secrets.SBP_API_KEY }}
+          SBP_BASE_URL: ${{ vars.SBP_BASE_URL }}
+          SBP_MODEL: ${{ inputs.model }}
+          SBP_PROVIDER: ${{ inputs.provider }}
+          SBP_QUERY: ${{ inputs.query }}
+          SBP_JUDGE: ${{ inputs.judge }}
+        run: |
+          JUDGE_FLAG=""
+          if [ "$SBP_JUDGE" = "true" ]; then JUDGE_FLAG="--judge"; fi
+          python sbp.py bench --provider "$SBP_PROVIDER" --query "$SBP_QUERY" $JUDGE_FLAG --max-calls 20
+      - name: Upload results
+        uses: actions/upload-artifact@v6
+        with:
+          name: sbp-benchmark-results
+          path: sbp_runs/
+          if-no-files-found: error
