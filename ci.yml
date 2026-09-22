@@ -1,0 +1,31 @@
+name: CI
+
+# Runs on every push and pull request. Offline only: no secrets, no network calls to any model.
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Unit tests
+        run: python -m unittest discover -v
+      - name: Offline demo
+        run: python sbp.py "Explain quantum computing simply."
+      - name: Benchmark plumbing with the mock provider (no network)
+        run: python sbp.py bench --provider mock --judge
