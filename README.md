@@ -31,6 +31,92 @@ This produces a stable, grounded outcome after the two restructuring passes abov
 
 SBP’s flow creates a mini self‑audit inside any reasoning process.
 
+EMPIRICAL EVALUATION
+(CSV+Report)
+
+Shakeela Begum Protocol™ (SBP): Preliminary Empirical Evaluation on a 100-Problem LogicBench-Based Reasoning Set
+
+Research update | 5th October 2026
+Overview
+
+This research presents a preliminary empirical evaluation of the Shakeela Begum Protocol™ (SBP), a structured prompting method developed by Pakistani haikuist Yasir Farooq in tribute to his late mother, Shakeela Begum.
+
+SBP uses three sequential reasoning instructions:
+
+    Negation: Restate the problem by identifying or explicitly excluding a misleading interpretation.
+    Interrogation: Transform the problem into a focused question that directs attention to the relevant reasoning.
+    Affirmation: Formulate a considered answer based on the preceding steps.
+
+The purpose of this study is to investigate whether this structured prompting sequence can improve model performance on logic problems compared with a baseline response and Chain-of-Thought (CoT) prompting, and whether combining SBP with CoT produces additional benefits.
+Experimental Design
+
+The evaluation used a study-defined set of 100 logic problems based on LogicBench BQA material. Four prompting conditions were evaluated on the same problem set:
+
+    Baseline
+    Chain-of-Thought (CoT)
+    Shakeela Begum Protocol (SBP)
+    CoT + SBP
+
+The experiment comprised 400 condition-level records: 100 problems evaluated under each of the four conditions.
+
+Problems 1–50 and Problems 51–100 were handled in two stages. The second stage was a frozen 50-problem extension, using checkpointed generation, separate blind judging, paired statistical analysis, and combined reporting.
+
+The evaluation used a configured Gemini generator and a Groq-hosted OpenAI GPT-OSS-120B judge. Model metadata in the experimental records includes some generator-model variation, which should be considered when interpreting reproducibility and model-specific effects.
+Preliminary Results
+Prompting condition 	Correct answers 	Accuracy
+Baseline 	76/100 	76%
+Chain-of-Thought 	76/100 	76%
+SBP 	80/100 	80%
+CoT + SBP 	74/100 	74%
+
+SBP achieved the highest observed overall accuracy, with a four-percentage-point advantage over both Baseline and CoT in this experiment.
+
+However, the paired comparison between SBP and Baseline was not statistically significant. The exact two-sided McNemar test yielded p ≈ 0.388. The omnibus comparison across all four conditions was also not statistically significant (Cochran’s Q ≈ 4.071, p ≈ 0.254).
+
+Consequently, these findings do not establish that SBP is statistically superior to Baseline or CoT. They provide preliminary evidence that warrants further controlled evaluation.
+Exploratory Analysis by Logic Family
+
+A descriptive comparison of Baseline and SBP produced the following results:
+Logic family 	Baseline 	SBP 	Difference
+Propositional logic 	90.6% 	90.6% 	0.0 percentage points
+First-order logic 	80.6% 	86.1% 	+5.6 percentage points
+Non-monotonic logic 	56.3% 	62.5% 	+6.3 percentage points
+
+The observed differences are potentially useful directions for further research, particularly in first-order and non-monotonic logic. They are descriptive findings, however, and do not independently demonstrate statistically significant superiority over CoT or establish that SBP generalizes to other reasoning tasks.
+Interpretation and Limitations
+
+The current findings support a cautious conclusion: SBP achieved the highest observed accuracy among the four tested conditions on this particular 100-problem set, but its advantage over Baseline and CoT was not statistically established.
+
+The study is limited by its sample size, the specific benchmark subset, the models and configurations used, and the possibility of model-output variability. The findings should not be interpreted as an official LogicBench leaderboard result or as evidence of universal reasoning improvement.
+
+ 
+Next research direction: 
+1. Logical Reasoning
+
+Further work  is on examining reproducibility on more fresh problem sets, model-specific effects, the contribution of individual SBP steps, and performance across different reasoning categories.
+2. BBQ Bias Detection
+
+A separate empirical study is planned to investigate whether SBP can reduce stereotype-driven responses using the Bias Benchmark for QA (BBQ).
+
+This will be a distinct experiment, not an extension of the LogicBench correctness score. The planned evaluation will compare prompting conditions on matched BBQ items and assess bias-related outcomes alongside answer accuracy. It will distinguish ambiguous contexts, where an “Unknown” response may be appropriate, from informative contexts, where answers should follow the available evidence.
+
+The next study will use predefined scoring rules, frozen test items, and paired comparisons. Its results will be reported independently, and any claims about bias reduction will depend on the observed data and statistical evidence.
+3. Hallucination Detection
+
+ 
+Research status
+
+The 100-problem LogicBench-based evaluation is complete. Further testing is planned to examine the reproducibility and scope of SBP’s observed effects and to investigate its potential application to bias detection.
+
+The present report should be treated as a preliminary empirical evaluation, not as a claim of proven superiority.
+
+Researcher: Yasir Farooq
+Protocol: Shakeela Begum Protocol™ (SBP)
+Study: 100-problem LogicBench-based reasoning evaluation
+
+10/10/2026
+
+.........
 
 
 Why SBP Works
@@ -244,6 +330,9 @@ v1.1 — 2025: Integrated into AI reflective prompting as the Three-Step Reflect
 v1.2 —21 
 November 2025: Official GitHub‑ready documentation release, including structured README and public dissemination.
 
+v1.3 11 October 2026
+SBP Empirical Evaluation
+
 
 
 
@@ -254,5 +343,9 @@ Contribution
 Issues and suggestions can be submitted via GitHub. This README is intended for public sharing and documentation.
 
 
+ShakeelaBegumProtocol #SBP #CoT #EmpiricalEvaluation #biasDetection #hallucinationReduction #ResponsiblenAI #yasirfarooq #llmEvaluation #ChainofThought #logicalReasoning #logicbench 
+
+
 
 #Python #OpenSource #PromptEngineering #LLMTools #AIResearch #DeveloperTools #BuildInPublic 
+
